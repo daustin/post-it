@@ -1,0 +1,21 @@
+<p align='right'>Delayed Queue Count: <%= Delayed::Job.count %></p><HR>
+
+	<%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+<table width='100%' cellspacing='5' border='0'>
+  <%  count = 0 
+   for post in @posts %>
+    <tr>
+	  <td class='<%= (count % 2 == 0) ? 'highlight' : 'lowlight' %>'>
+	    <%= h post.content %><HR>
+		<table border='0' width='100%'>
+			<tr><td><%= post.created_at.localtime %></td><td align='right'><%= link_to "Destroy", post, :confirm => 'Are you sure?', :method => :delete %></td></tr>
+		</table>
+	  </td>
+    </tr>
+  <% 
+     count += 1
+     end %>
+</table>
+

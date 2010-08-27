@@ -1,0 +1,7 @@
+<% form_for @post do |f| %>
+  <%= f.error_messages %>
+  <p align='right'>
+    <%= f.text_area :content, :size => "80x15" %>
+  </p>
+  <p align='right'><%= f.submit "Post It!" %></p>
+<% end %>

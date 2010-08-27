@@ -1,0 +1,11 @@
+<% title "Posts" %>
+
+<h3>Posts:</h3>
+
+<div id='posts'>
+   <%= render :partial => 'list' %>
+</div>
+	<%= render :partial => 'form' %>
+<HR>
+<p align='right'>	Note: list refreshes every 10 seconds</p>
+<%= periodically_call_remote(:url => { :action => 'list' }, :update => 'posts', :frequency => 10 ) %>
